@@ -1,34 +1,34 @@
-name: "Run SAST Scan on SuperMario Game Project"
+# name: "Run SAST Scan on SuperMario Game Project"
 
-on:
-  push:
-  #   branches:
-  #     - main
+# on:
+#   push:
+#   #   branches:
+#   #     - main
   
-jobs:
+# jobs:
 
-  sonarqube_sast_scan:
-    runs-on: ubuntu-latest
+#   sonarqube_sast_scan:
+#     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0  # Shallow clones should be disabled for better analysis relevance
-                          # project key gitopsdevsecopspipeline
-                          # sonar_url http://ec2-35-93-93-147.us-west-2.compute.amazonaws.com:9000/
-                          #sqp_29ad1595aa5c642fd8c9ea2c05ec77fac8e06611
+#     steps:
+#       - name: Checkout Repository
+#         uses: actions/checkout@v4
+#         with:
+#           fetch-depth: 0  # Shallow clones should be disabled for better analysis relevance
+#                           # project key gitopsdevsecopspipeline
+#                           # sonar_url http://ec2-35-93-93-147.us-west-2.compute.amazonaws.com:9000/
+#                           #sqp_29ad1595aa5c642fd8c9ea2c05ec77fac8e06611
                           
-      - name: SonarQube Scan
-        uses: sonarsource/sonarqube-scan-action@master
-        env:
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+#       - name: SonarQube Scan
+#         uses: sonarsource/sonarqube-scan-action@master
+#         env:
+#           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+#           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
-      # If you wish to fail your job when the Quality Gate is red, uncomment the
-      # following lines. This would typically be used to fail a deployment.
-      - name: SonarQube Quality Gate Check
-        uses: sonarsource/sonarqube-quality-gate-action@master
-        timeout-minutes: 5
-        env:
-            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+#       # If you wish to fail your job when the Quality Gate is red, uncomment the
+#       # following lines. This would typically be used to fail a deployment.
+#       - name: SonarQube Quality Gate Check
+#         uses: sonarsource/sonarqube-quality-gate-action@master
+#         timeout-minutes: 5
+#         env:
+#             SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
