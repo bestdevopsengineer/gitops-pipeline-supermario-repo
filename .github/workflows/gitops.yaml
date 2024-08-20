@@ -17,9 +17,10 @@ jobs:
           fetch-depth: 0  # Shallow clones should be disabled for better analysis relevance
                           # project key gitopsdevsecopspipeline
                           # sonar_url http://ec2-35-93-93-147.us-west-2.compute.amazonaws.com:9000/
+                          #sqp_29ad1595aa5c642fd8c9ea2c05ec77fac8e06611
                           
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@master
         env:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}sqp_29ad1595aa5c642fd8c9ea2c05ec77fac8e06611
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
